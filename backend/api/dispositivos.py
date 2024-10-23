@@ -48,7 +48,6 @@ def get_db():
 
 router = APIRouter()
 
-# Modelo para representar um dispositivo (Pydantic)
 class Dispositivo(BaseModel):
     nome: str
     tipo: str
