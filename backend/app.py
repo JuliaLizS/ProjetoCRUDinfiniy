@@ -100,8 +100,8 @@ app.include_router(dispositivos_router, prefix="/dispositivos")
 
 # Configuração CORS
 origins = [
-    "http://localhost",  # Frontend rodando no localhost
-    "http://localhost:8000",  # Backend rodando no localhost
+    "http://localhost",  
+    "http://localhost:8000", 
     "http://127.0.0.1:8000",
 ]
 
