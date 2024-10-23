@@ -21,7 +21,6 @@
         </ul>
     </div>
 
-    <!-- Conteúdo Principal -->
     <div class="content">
         <h1>Indústrias Wayne</h1>
 
@@ -68,76 +67,76 @@
         </section>
 
         <!-- Listas para exibir usuários, veículos e dispositivos -->
-<h2 id="tituloListaUsuarios" style="display: none;">Lista de Usuários</h2>
-<ul id="listaUsuarios" style="display: none;"></ul>
-
-<h2 id="tituloListaVeiculos" style="display: none;">Lista de Veículos</h2>
-<ul id="listaVeiculos" style="display: none;"></ul>
-<div id="feedbackveiculo"></div>
-
-
-<h2 id="tituloListaDispositivos" style="display: none;">Lista de Dispositivos</h2>
-<ul id="listaDispositivos" style="display: none;"></ul>
-
-
-<!--! Formulário de Edição de Usuário -->
-<div id="editarUsuario" style="display:none;">
-    <h3>Editar Usuário</h3>
-    <form id="formularioEditarUsuario">
-        <input type="hidden" id="editUsuarioId" name="id">
+        <h2 id="tituloListaUsuarios" style="display: none;">Lista de Usuários</h2>
+        <ul id="listaUsuarios" style="display: none;"></ul>
         
-        <label for="editUsuarioNome">Nome:</label>
-        <input type="text" id="editUsuarioNome" name="nome" required>
+        <h2 id="tituloListaVeiculos" style="display: none;">Lista de Veículos</h2>
+        <ul id="listaVeiculos" style="display: none;"></ul>
+        <div id="feedbackveiculo"></div>
         
-        <label for="editUsuarioEmail">Email:</label>
-        <input type="email" id="editUsuarioEmail" name="email" required>
         
-        <label for="editUsuarioTipo">Tipo:</label>
-        <select id="editUsuarioTipo" name="tipo" required>
-            <option value="administrador">Administrador</option>
-            <option value="funcionario">Funcionário</option>
-            <option value="gerente">Gerente</option>
-        </select>
+        <h2 id="tituloListaDispositivos" style="display: none;">Lista de Dispositivos</h2>
+        <ul id="listaDispositivos" style="display: none;"></ul>
+
+
+        <!--! Formulário de Edita de Usuário -->
+        <div id="editarUsuario" style="display:none;">
+            <h3>Editar Usuário</h3>
+            <form id="formularioEditarUsuario">
+                <input type="hidden" id="editUsuarioId" name="id">
+                
+                <label for="editUsuarioNome">Nome:</label>
+                <input type="text" id="editUsuarioNome" name="nome" required>
+                
+                <label for="editUsuarioEmail">Email:</label>
+                <input type="email" id="editUsuarioEmail" name="email" required>
+                
+                <label for="editUsuarioTipo">Tipo:</label>
+                <select id="editUsuarioTipo" name="tipo" required>
+                    <option value="administrador">Administrador</option>
+                    <option value="funcionario">Funcionário</option>
+                    <option value="gerente">Gerente</option>
+                </select>
+                
+                <label for="editUsuarioSenha">Senha:</label>
+                <input type="password" id="editUsuarioSenha" name="senha">
         
-        <label for="editUsuarioSenha">Senha:</label>
-        <input type="password" id="editUsuarioSenha" name="senha">
+                <button type="submit">Salvar Alterações</button>
+            </form>
+            <div id="feedbackEdicaoUsuario"></div>
+        </div>
 
-        <button type="submit">Salvar Alterações</button>
-    </form>
-    <div id="feedbackEdicaoUsuario"></div>
-</div>
-
-<!--! Formulário de Edição de Veículos -->
-<section id="editarVeiculo" class="formulario" style="display:none;">
-    <h2>Editar Veículo</h2>
-    <form id="formularioEditarVeiculo">
-        <input type="hidden" id="editVeiculoId"> <!-- Campo oculto para o ID do veículo -->
-        <input type="text" id="editVeiculoPlaca" placeholder="Placa" required>
-        <input type="text" id="editVeiculoModelo" placeholder="Modelo" required>
-        <input type="text" id="editVeiculoMarca" placeholder="Marca" required>
-        <input type="text" id="editVeiculoCor" placeholder="Cor" required>
-        <input type="submit" value="Salvar Alterações">
-    </form>
-    <div id="feedbackEdicaoVeiculo"></div>
-</section>
+        <!--! Formulário de Editar de Veículos -->
+        <section id="editarVeiculo" class="formulario" style="display:none;">
+            <h2>Editar Veículo</h2>
+            <form id="formularioEditarVeiculo">
+                <input type="hidden" id="editVeiculoId"> <!-- Campo oculto para o ID do veículo -->
+                <input type="text" id="editVeiculoPlaca" placeholder="Placa" required>
+                <input type="text" id="editVeiculoModelo" placeholder="Modelo" required>
+                <input type="text" id="editVeiculoMarca" placeholder="Marca" required>
+                <input type="text" id="editVeiculoCor" placeholder="Cor" required>
+                <input type="submit" value="Salvar Alterações">
+            </form>
+            <div id="feedbackEdicaoVeiculo"></div>
+        </section>
 
 
-<!--! Formulário de Edição de Dispositivo -->
-<section id="editarDispositivo" class="formulario" style="display:none;">
-    <h2>Editar Dispositivo</h2>
-    <form id="formularioEditarDispositivo">
-        <input type="hidden" id="editDispositivoId">
-        <input type="text" id="editDispositivoNome" placeholder="Nome do Dispositivo" required>
-        <input type="text" id="editDispositivoTipo" placeholder="Tipo" required>
-        <input type="number" id="editDispositivoQuantidade" placeholder="Quantidade" required>
-        <input type="submit" value="Atualizar Dispositivo">
-    </form>
-    <div id="feedbackEdicaoDispositivo"></div>
-</section>
+        <!--! Formulário de Editar de Dispositivo -->
+        <section id="editarDispositivo" class="formulario" style="display:none;">
+            <h2>Editar Dispositivo</h2>
+            <form id="formularioEditarDispositivo">
+                <input type="hidden" id="editDispositivoId">
+                <input type="text" id="editDispositivoNome" placeholder="Nome do Dispositivo" required>
+                <input type="text" id="editDispositivoTipo" placeholder="Tipo" required>
+                <input type="number" id="editDispositivoQuantidade" placeholder="Quantidade" required>
+                <input type="submit" value="Atualizar Dispositivo">
+            </form>
+            <div id="feedbackEdicaoDispositivo"></div>
+        </section>
 
 
-    <footer> &copy; Indústrias Wayne </footer>
+        <footer> &copy; Indústrias Wayne </footer>
 
-    <script src="script.js"></script>
+        <script src="script.js"></script>
 </body>
 </html>
