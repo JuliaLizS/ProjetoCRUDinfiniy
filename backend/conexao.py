@@ -3,13 +3,11 @@ import mysql.connector
 from mysql.connector import Error
 import logging
 
-# Configurar o log para exibir informações no console
 logging.basicConfig(level=logging.INFO)
 
 def conexao_banco():
     con = None
     try:
-        # Pegar informações de usuário e senha do ambiente
         db_user = os.getenv('DB_USER', 'root')
         db_password = os.getenv('DB_PASSWORD', '1234')
 
@@ -52,7 +50,6 @@ def conexao_banco():
             con.close()
             logging.info("Conexão com o banco de dados foi fechada.")
 
-# Função para uso no backend (por exemplo, FastAPI)
 def get_db():
     con = conexao_banco()
     try:
