@@ -106,10 +106,10 @@ async def criar_usuario(usuario: Usuario, conexao=Depends(get_db)):
         return {"message": "Usuário criado com sucesso"}
     except Exception as e:
         logging.error(f"Erro ao inserir usuário: {e}")
-        logging.error(traceback.format_exc())  # Mostra a pilha de rastreamento
+        logging.error(traceback.format_exc())  
         raise HTTPException(status_code=500, detail="Erro ao inserir usuário no banco de dados.")
     finally:
-        if cursor:  # Fecha o cursor apenas se ele foi criado
+        if cursor:  
             cursor.close()
 
 
@@ -122,11 +122,9 @@ async def alterar_usuario(usuario_id: int, usuario: UsuarioUpdate, conexao=Depen
     try:
         cursor = conexao.cursor()
         
-        # Inicia a query de update
         query = "UPDATE usuario SET nome = %s, email = %s, tipo = %s"
         valores = [usuario.nome, usuario.email, usuario.tipo]
         
-        # Se uma nova senha foi fornecida, a criptografa e adiciona à query
         if usuario.senha:
             senha_hash = bcrypt.hashpw(usuario.senha.encode('utf-8'), bcrypt.gensalt())
             query += ", senha = %s"
@@ -144,7 +142,7 @@ async def alterar_usuario(usuario_id: int, usuario: UsuarioUpdate, conexao=Depen
         return {"message": "Usuário atualizado com sucesso"}
     except Exception as e:
         logging.error(f"Erro ao alterar usuário: {e}")
-        logging.error(traceback.format_exc())  # Loga a pilha de rastreamento
+        logging.error(traceback.format_exc())  
         raise HTTPException(status_code=500, detail="Erro ao alterar usuário no banco de dados.")
     finally:
         if cursor:
