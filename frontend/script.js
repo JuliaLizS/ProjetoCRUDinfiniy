@@ -41,7 +41,7 @@ document.getElementById('formulariousuario').addEventListener('submit', function
     });
 });
 
-//! Formulário para adicionar um veículo
+//! Formulário para adicionar veículo
 document.getElementById('formularioveiculo').addEventListener('submit', function(event) {
     event.preventDefault();
 
@@ -64,7 +64,7 @@ document.getElementById('formularioveiculo').addEventListener('submit', function
         return response.json();
     })
     .then(data => {
-        document.getElementById('formularioveiculo').reset(); // Limpa o formulário
+        document.getElementById('formularioveiculo').reset();
         document.getElementById('feedbackveiculo').innerHTML = 'Veículo adicionado com sucesso!';
     })
     .catch(error => {
@@ -73,7 +73,7 @@ document.getElementById('formularioveiculo').addEventListener('submit', function
     });
 });
 
-// Submissão do formulário para adicionar um dispositivo
+// adicionar um dispositivo
 document.getElementById('formulariodispositivo').addEventListener('submit', function(event) {
     event.preventDefault();
 
@@ -81,10 +81,10 @@ document.getElementById('formulariodispositivo').addEventListener('submit', func
     let tipo = document.getElementById('tipodisp').value;
     let quantidade = document.getElementById('quantidadedisp').value;
 
-    // Dados do dispositivo a serem enviados para o backend
+    // Dados do dispositivo a serem enviados para o back
     const dispositivo = { nome, tipo, quantidade };
 
-    // Enviar os dados para o backend
+    // Enviar os dados para o back
     fetch('http://localhost:8000/dispositivos/adicionar', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -97,7 +97,6 @@ document.getElementById('formulariodispositivo').addEventListener('submit', func
         return response.json();
     })
     .then(data => {
-        // Aqui estamos assumindo que o backend retorna {"message": "Dispositivo adicionado com sucesso"}
         if (data.message) {
             document.getElementById('formulariodispositivo').reset();
             document.getElementById('feedbackdispositivo').innerHTML = 'Dispositivo adicionado com sucesso!';
@@ -113,12 +112,6 @@ document.getElementById('formulariodispositivo').addEventListener('submit', func
 
 
 
-
-
-
-
-
-
 function preencherFormulario(usuario) {
     document.getElementById('editUsuarioId').value = usuario.id;
     document.getElementById('editUsuarioNome').value = usuario.nome;
@@ -127,7 +120,7 @@ function preencherFormulario(usuario) {
 }
 
 
-// Funções para listar os itens nas listas
+// Listar os usuarios nas listas
 function listarUsuarios() {
     fetch('http://localhost:8000/usuarios/listar')
     .then(response => response.json())
@@ -153,8 +146,8 @@ function listarUsuarios() {
             const btnAlterar = document.createElement('button');
             btnAlterar.textContent = 'Alterar';
             btnAlterar.onclick = function() {
-                mostrarFormulario('editarUsuario'); // Exibe o formulário de edição
-                preencherFormulario(usuario); // Preenche os dados do usuário
+                mostrarFormulario('editarUsuario');
+                preencherFormulario(usuario);
             };
 
             const btnExcluir = document.createElement('button');
@@ -190,10 +183,10 @@ function listarVeiculos() {
             const lista = document.getElementById('listaVeiculos');
             const tituloLista = document.getElementById('tituloListaVeiculos');
 
-            // Exibe o título e a lista
+            // Titulo
             tituloLista.style.display = 'block';
             lista.style.display = 'block';
-            lista.innerHTML = ''; // Limpa a lista antes de adicionar novos itens
+            lista.innerHTML = ''; 
 
             // Adiciona cada veículo à lista
             data.veiculos.forEach(veiculo => {
@@ -203,14 +196,14 @@ function listarVeiculos() {
                 const btnAlterar = document.createElement('button');
                 btnAlterar.textContent = 'Alterar';
                 btnAlterar.onclick = function() {
-                    mostrarFormularioVeiculo('editarVeiculo'); // Exibe o formulário de edição
-                    preencherFormularioVeiculo(veiculo); // Preenche os dados do veículo
+                    mostrarFormularioVeiculo('editarVeiculo');
+                    preencherFormularioVeiculo(veiculo); 
                 };
 
                 const btnExcluir = document.createElement('button');
                 btnExcluir.textContent = 'Excluir';
                 btnExcluir.onclick = function() {
-                    excluirVeiculo(veiculo.id); // Chama a função para excluir o veículo
+                    excluirVeiculo(veiculo.id);
                 };
 
                 li.appendChild(btnAlterar);
@@ -227,10 +220,10 @@ function listarVeiculos() {
         });
 }
 
-// Chame esta função no evento de clique
+
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('listarVeiculosLink').addEventListener('click', function() {
-        listarVeiculos(); // Chama a função para listar veículos
+        listarVeiculos();
     });
 });
 
@@ -249,19 +242,19 @@ function listarDispositivos() {
             // Exibe o título e a lista
             tituloLista.style.display = 'block';
             lista.style.display = 'block';
-            lista.innerHTML = ''; // Limpa a lista antes de adicionar novos itens
+            lista.innerHTML = ''; 
 
-            // Adiciona cada dispositivo à lista com botões de editar e excluir
+            // Adiciona  dispositivo à lista 
             data.dispositivos.forEach(dispositivo => {
                 const li = document.createElement('li');
                 li.textContent = `${dispositivo.nome} - ${dispositivo.tipo} (Quantidade: ${dispositivo.quantidade})`;
 
-                // Botão para editar o dispositivo
+                // Botão para editar
                 const editarBtn = document.createElement('button');
                 editarBtn.textContent = 'Editar';
                 editarBtn.onclick = () => mostrarFormularioEdicaoDispositivo(dispositivo);
 
-                // Botão para excluir o dispositivo
+                // Botão para excluir
                 const excluirBtn = document.createElement('button');
                 excluirBtn.textContent = 'Excluir';
                 excluirBtn.onclick = () => excluirDispositivo(dispositivo.id);
@@ -278,8 +271,6 @@ function listarDispositivos() {
 }
 
 
-
-// Chame esta função no evento de clique
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('listarDispositivosLink').addEventListener('click', function() {
         listarDispositivos(); // Chama a função para listar dispositivos
@@ -312,8 +303,8 @@ document.getElementById('formularioEditarUsuario').addEventListener('submit', fu
         return response.json();
     })
     .then(data => {
-        listarUsuarios(); // Atualiza a lista de usuários
-        document.getElementById('editarUsuario').style.display = 'none'; // Esconde o formulário de edição
+        listarUsuarios();
+        document.getElementById('editarUsuario').style.display = 'none'; 
         document.getElementById('feedbackEdicaoUsuario').innerHTML = 'Usuário atualizado com sucesso!';
     })
     .catch(error => {
@@ -327,7 +318,7 @@ function mostrarFormulario(formId) {
 }
 
 
-// Função para preencher o formulário de edição com os dados do veículo
+// Preencher formulário de edição dados veículo
 function preencherFormularioVeiculo(veiculo) {
     document.getElementById('editVeiculoId').value = veiculo.id;
     document.getElementById('editVeiculoPlaca').value = veiculo.placa;
@@ -336,7 +327,7 @@ function preencherFormularioVeiculo(veiculo) {
     document.getElementById('editVeiculoCor').value = veiculo.cor;
 }
 
-//! Função para editar um veículo
+//! Função para editar veículo
 document.getElementById('formularioEditarVeiculo').addEventListener('submit', function(event) {
     event.preventDefault();
 
@@ -360,8 +351,8 @@ document.getElementById('formularioEditarVeiculo').addEventListener('submit', fu
         return response.json();
     })
     .then(data => {
-        listarVeiculos(); // Atualiza a lista de veículos
-        document.getElementById('editarVeiculo').style.display = 'none'; // Esconde o formulário de edição
+        listarVeiculos(); 
+        document.getElementById('editarVeiculo').style.display = 'none'; 
         document.getElementById('feedbackEdicaoVeiculo').innerHTML = 'Veículo atualizado com sucesso!';
     })
     .catch(error => {
@@ -370,7 +361,6 @@ document.getElementById('formularioEditarVeiculo').addEventListener('submit', fu
     });
 });
 
-// Função para exibir o formulário de edição
 function mostrarFormularioVeiculo(formId) {
     document.getElementById(formId).style.display = 'block';
 }
@@ -407,8 +397,8 @@ document.getElementById('formularioEditarDispositivo').addEventListener('submit'
         return response.json();
     })
     .then(data => {
-        listarDispositivos(); // Atualiza a lista de dispositivos
-        document.getElementById('editarDispositivo').style.display = 'none'; // Esconde o formulário de edição
+        listarDispositivos(); 
+        document.getElementById('editarDispositivo').style.display = 'none';
         document.getElementById('feedbackEdicaoDispositivo').innerHTML = 'Dispositivo atualizado com sucesso!';
     })
     .catch(error => {
@@ -426,7 +416,7 @@ function excluirUsuario(usuarioId) {
         })
         .then(response => {
             if (response.ok) {
-                listarUsuarios(); // Atualiza a lista após a exclusão
+                listarUsuarios(); 
                 document.getElementById('feedbackusuario').innerHTML = 'Usuário excluído com sucesso!';
             } else {
                 throw new Error('Erro ao excluir usuário.');
@@ -447,7 +437,7 @@ function excluirVeiculo(veiculoId) {
         })
         .then(response => {
             if (response.ok) {
-                listarVeiculos(); // Atualiza a lista de veículos após a exclusão
+                listarVeiculos(); 
                 document.getElementById('feedbackveiculo').innerHTML = 'Veículo excluído com sucesso!';
             } else {
                 throw new Error('Erro ao excluir veículo.');
@@ -470,7 +460,7 @@ function excluirDispositivo(dispositivoId) {
             if (!response.ok) {
                 throw new Error('Erro ao excluir dispositivo.');
             }
-            listarDispositivos(); // Atualiza a lista após a exclusão
+            listarDispositivos(); 
             document.getElementById('feedbackdispositivo').innerHTML = 'Dispositivo excluído com sucesso!';
         })
         .catch(error => {
