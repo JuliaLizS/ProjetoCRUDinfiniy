@@ -1,10 +1,10 @@
-/* Definindo o estilo geral do corpo */
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #1a1a1a; /* Preto */
-    color: #f1f1f1; /* Cinza claro */
+    background-color: #1a1a1a; 
+    color: #f1f1f1; 
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -37,7 +37,7 @@ body {
 }
 
 .sidebar h2 {
-    color: #f1c40f; /* Amarelo Wayne */
+    color: #f1c40f; 
     text-align: center;
     margin-bottom: 20px;
 }
@@ -62,16 +62,16 @@ body {
 }
 
 .sidebar ul li a:hover {
-    background-color: #f1c40f; /* Amarelo */
-    color: #1a1a1a; /* Preto */
+    background-color: #f1c40f; 
+    color: #1a1a1a; 
 }
 
-/* Estilo do conteúdo principal */
+/* conteúdo principal */
 .content {
-    margin-left: 280px; /* Aumenta o espaço à esquerda para que o título seja visível */
+    margin-left: 280px; 
     padding: 20px;
-    flex-grow: 1; /* Faz o conteúdo crescer e ocupar o espaço disponível */
-    overflow-x: auto; /* Permite que o conteúdo role horizontalmente, se necessário */
+    flex-grow: 1; 
+    overflow-x: auto; 
 }
 
 .content h1 {
@@ -114,10 +114,10 @@ body {
 }
 
 .formulario input[type="submit"]:hover {
-    background-color: #f39c12; /* Amarelo mais escuro */
+    background-color: #f39c12; 
 }
 
-/* Estilizando as listas de usuários, veículos e dispositivos */
+
 ul {
     list-style: none;
     padding: 0;
@@ -151,10 +151,10 @@ ul li button {
 }
 
 ul li button:hover {
-    background-color: #f39c12; /* Amarelo mais escuro */
+    background-color: #f39c12;
 }
 
-/* Estilo do rodapé */
+
 footer {
     background-color: #333;
     color: #f1f1f1;
@@ -165,7 +165,7 @@ footer {
     bottom: 0;
     left: 0;
     clear: both;
-    margin-top: auto; /* Mantém o rodapé no final da página */
+    margin-top: auto; 
 }
 
 /* Responsividade */
